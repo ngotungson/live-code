@@ -1,0 +1,16 @@
+[log]
+path = "log/orenctl.log"
+# level: Info (default), Debug, Warn, Error
+level = "Debug"
+
+[api]
+# binding to address and port. Format: "ip:port" or ":port" (ip default: 0.0.0.0).
+# Examples: "127.0.0.1:8080", ":8080" (same 0.0.0.0:8080). Default ":8080"
+listening = "0.0.0.0:8080"
+requestTimeout = 120
+
+# Run API in Debug mode. Default: false
+debugMode = false
+
+# Enable CORS
+cors = true

@@ -1,0 +1,136 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:8080
+paths:
+  /users/signup:
+    post:
+      summary: Create user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequrest'
+      responses:
+        200:
+          description: Sign up successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /users/login:
+    post:
+      summary: Login user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequrest'
+      responses:
+        200:
+          description: Login successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /posts:
+    get:
+      summary: Get all posts
+      responses:
+        200:
+          description: Create post successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      summary: Create post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePostRequrest'
+      responses:
+        200:
+          description: Create post successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+
+  /posts/{id}/comments:
+    get:
+      summary: Get all posts
+      responses:
+        200:
+          description: Create post successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      summary: Create post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePostRequrest'
+      responses:
+        200:
+          description: Create post successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        description:
+          type: string
+    CreateUserRequrest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        user_name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        user_name:
+          type: string
+        password:
+          type: string
+    CreatePostRequrest:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+        content:
+          type: string
+    CreateCommentRequrest:
+      type: object
+      properties:
+        content:
+          type: string
+
+
